@@ -1,5 +1,12 @@
+# Note: DO NOT use this excerpt as a standalone configuration file; add it to your existing Home Assistant configuration to avoid breaking your setup.
 # Sample excerpts from configuration yaml, add these to your existing file do not use this one
 # or you will most likely break your HA config
+# READ THIS ^^^
+
+# This configuration defines a set of input_booleans representing checklist items for preparing an RV (Recreational Vehicle) before driving.
+# Each input_boolean corresponds to a specific item (e.g., Klossar, Trappen, Ström, etc.) that should be checked or secured.
+# The template binary_sensor "RV Ready to Drive" evaluates to 'on' only when all checklist items are marked as 'on', indicating the RV is ready.
+# The binary_sensor uses an English name for easier integration with voice assistants like Google Assistant.
 
 input_boolean:
   rv_klossar:
@@ -21,11 +28,13 @@ input_boolean:
   rv_kylskap12v:
     name: Kylskåp 12V
     
+# This binary sensor will monitor the combined state of the input_booleans to determine if the RV is ready to drive ort not
 template:
   - binary_sensor:
       - name: RV Ready to Drive #English name makes it easier to integrate with Google assistant etc
         unique_id: rv_ready_to_drive
-        state: >
+        # This binary sensor will be 'on' when all the included input_booleans are 'on'
+        state: > 
           {{
             is_state('input_boolean.rv_klossar', 'on') and
             is_state('input_boolean.rv_stege', 'on') and

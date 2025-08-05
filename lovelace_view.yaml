@@ -1,3 +1,9 @@
+  # This Lovelace view defines a "Checklist" subview for Home Assistant.
+  # It displays a grid of buttons (2 columns) representing various checklist items for an RV.
+  # Each button is linked to an input_boolean or binary_sensor entity, allowing toggling or status display.
+  # The checklist covers items such as wheel chocks, awning, power, windows, external inspection, roof hatch,
+  # fridge (12V), stowage, ladder, and a "Ready to Drive" status.
+  # Icons and names are shown for each button, but states are hidden except for "Ready to Drive".
   - title: Checklist
     path: checklist
     icon: mdi:car
