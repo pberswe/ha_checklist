@@ -1,0 +1,79 @@
+  - title: Checklist
+    path: checklist
+    icon: mdi:car
+    subview: true
+    cards:
+      - square: true
+        type: grid
+        columns: 2
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_klossar
+            name: Klossar och stödben
+            show_state: false
+            icon: mdi:car-brake-alert
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_markis
+            name: Markis
+            show_state: false
+            icon: mdi:storefront
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_strom
+            name: Ström
+            show_state: false
+            icon: mdi:power-plug-battery
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_fonster
+            name: Fönster
+            show_state: false
+            icon: mdi:window-closed
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_luckor
+            name: utvändig inspektion
+            show_state: false
+            icon: mdi:eye-arrow-right-outline
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_taklucka
+            name: Taklucka
+            show_state: false
+            icon: mdi:home-roof
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_kylskap12v
+            name: Kylskåp 12V
+            show_state: false
+            icon: mdi:fridge-outline
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_stuvning
+            name: Stuvning
+            show_state: false
+            icon: mdi:package-check
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.rv_stege
+            name: Stege
+            show_state: false
+            icon: mdi:stairs-up
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: binary_sensor.rv_ready_to_drive
+            name: Ready to Drive
+            show_state: true
+            icon: mdi:check-circle

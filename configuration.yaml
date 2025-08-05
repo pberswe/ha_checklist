@@ -1,0 +1,40 @@
+# Sample excerpts from configuration yaml, add these to your existing file do not use this one
+# or you will most likely break your HA config
+
+input_boolean:
+  rv_klossar:
+    name: Klossar
+  rv_stege:
+    name: Trappen
+  rv_strom:
+     name: Ström
+  rv_markis:
+    name: Markis
+  rv_luckor:
+    name: Luckor
+  rv_fonster:
+    name: Fönster
+  rv_taklucka:
+    name: Taklucka
+  rv_stuvning:
+    name: Stuvning
+  rv_kylskap12v:
+    name: Kylskåp 12V
+    
+template:
+  - binary_sensor:
+      - name: RV Ready to Drive #English name makes it easier to integrate with Google assistant etc
+        unique_id: rv_ready_to_drive
+        state: >
+          {{
+            is_state('input_boolean.rv_klossar', 'on') and
+            is_state('input_boolean.rv_stege', 'on') and
+            is_state('input_boolean.rv_strom', 'on') and
+            is_state('input_boolean.rv_markis', 'on') and
+            is_state('input_boolean.rv_luckor', 'on') and
+            is_state('input_boolean.rv_fonster', 'on') and
+            is_state('input_boolean.rv_taklucka', 'on') and
+            is_state('input_boolean.rv_stuvning', 'on') and
+            is_state('input_boolean.rv_kylskap12v', 'on')
+          }}
+# device_class: safety does not work for this checklist as it is setup atm
